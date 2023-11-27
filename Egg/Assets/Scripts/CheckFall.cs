@@ -12,6 +12,11 @@ public class CheckFall : MonoBehaviour
 
     public GameObject endScreen;
 
+    public bool inWater;
+
+    public AudioSource crackSound;
+    public GameObject crackAudio;
+
     void Start()
     {
         startPosition = transform.position;
@@ -21,7 +26,7 @@ public class CheckFall : MonoBehaviour
     void Update()
     {
         
-        if (egg.grounded)
+        if (egg.grounded || inWater)
         {
             startPosition = transform.position;
         }
@@ -30,7 +35,7 @@ public class CheckFall : MonoBehaviour
             distanceFallen = startPosition.y - transform.position.y;
         }
 
-       if (distanceFallen >= 3)
+       if (distanceFallen >= 3 && !inWater)
         {
             StartCoroutine(GameOver());
         }
@@ -41,8 +46,33 @@ public class CheckFall : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         endScreen.SetActive(true);
+
+        if(egg.grounded && !crackSound.isPlaying)
+        {
+            crackSound.Play();
+            Destroy(crackSound, 0.1f);
+            
+        }
+
+        egg.speed = 0f;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            inWater = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Water"))
+        {
+            
+            inWater = false;
+        }
+    }
 
 
 

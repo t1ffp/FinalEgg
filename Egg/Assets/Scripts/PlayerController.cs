@@ -96,6 +96,11 @@ public class PlayerController : MonoBehaviour
         {
             grounded = true;
         }
+
+        if (collision.gameObject.CompareTag("Ramp"))
+        {
+            speed = 10f;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -104,5 +109,12 @@ public class PlayerController : MonoBehaviour
         {
             grounded = false;
         }
+
+        if (collision.gameObject.CompareTag("Ramp"))
+        {
+            speed = 4f;
+        }
     }
+
+   
 }

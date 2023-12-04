@@ -38,7 +38,7 @@ public class CheckFall : MonoBehaviour
        if (distanceFallen >= 3 && !inWater)
         {
             StartCoroutine(GameOver());
-        }
+        }    
 
     }
 

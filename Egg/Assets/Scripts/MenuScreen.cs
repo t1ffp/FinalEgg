@@ -17,6 +17,9 @@ public class MenuScreen : MonoBehaviour
 
     private bool canPause = false;
 
+    public GameObject camTip;
+    public GameObject mouseCursor;
+
     // Update is called once per frame
 
     private void Start()
@@ -49,6 +52,8 @@ public class MenuScreen : MonoBehaviour
             titleText.SetActive(false);    
             mainCam.SetActive(true);
             secondCam.SetActive(false);
+            mouseCursor.SetActive(true);
+            camTip.SetActive(true);
             Time.timeScale = 1f;
             canPause = true;
         }

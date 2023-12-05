@@ -17,15 +17,19 @@ public class CheckFall : MonoBehaviour
     public AudioSource crackSound;
     public GameObject crackAudio;
 
+    Checkpoint playerCheckpoint;
+    public GameObject respawnButton;
+
     void Start()
     {
         startPosition = transform.position;
         egg = GetComponent<PlayerController>();
+        playerCheckpoint = GetComponent<Checkpoint>();
     }
 
     void Update()
     {
-        
+
         if (egg.grounded || inWater)
         {
             startPosition = transform.position;
@@ -35,10 +39,10 @@ public class CheckFall : MonoBehaviour
             distanceFallen = startPosition.y - transform.position.y;
         }
 
-       if (distanceFallen >= 3 && !inWater)
+        if (distanceFallen >= 3 && !inWater)
         {
             StartCoroutine(GameOver());
-        }    
+        }
 
     }
 
@@ -46,15 +50,20 @@ public class CheckFall : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         endScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        egg.speed = 0f;
 
-        if(egg.grounded && !crackSound.isPlaying)
+        if (egg.grounded && !crackSound.isPlaying)
         {
             crackSound.Play();
             Destroy(crackSound, 0.1f);
-            
         }
 
-        egg.speed = 0f;
+        if (!playerCheckpoint.hasCheckpoint)
+        {
+            respawnButton.SetActive(false);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -69,10 +78,23 @@ public class CheckFall : MonoBehaviour
     {
         if (other.CompareTag("Water"))
         {
-            
+
             inWater = false;
         }
     }
+
+    
+    public void RespawnAtCheckpoint()
+    {
+        endScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        transform.position = playerCheckpoint.vectorPoint;
+        egg.speed = 4f;
+
+    }
+
+}
 
 
 
@@ -127,4 +149,4 @@ public class CheckFall : MonoBehaviour
      }
 
      */
-}
+

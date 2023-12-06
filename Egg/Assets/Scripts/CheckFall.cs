@@ -59,11 +59,12 @@ public class CheckFall : MonoBehaviour
             crackSound.Play();
             Destroy(crackSound, 0.1f);
         }
-
+     
         if (!playerCheckpoint.hasCheckpoint)
         {
             respawnButton.SetActive(false);
         }
+ 
     }
 
     private void OnTriggerStay(Collider other)

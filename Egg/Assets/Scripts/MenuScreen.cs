@@ -24,12 +24,15 @@ public class MenuScreen : MonoBehaviour
 
     private void Start()
     {
-        isPaused = false;
-        startText.SetActive(true);
-        Time.timeScale = 0f;
-        mainCam.SetActive(false);
-        secondCam.SetActive(true);
-        canPause = false;
+        if (secondCam != null)
+        {
+            isPaused = false;
+            startText.SetActive(true);
+            Time.timeScale = 0f;
+            mainCam.SetActive(false);
+            secondCam.SetActive(true);
+            canPause = false;
+        }
 
     }
     void Update()

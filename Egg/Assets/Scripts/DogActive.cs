@@ -7,6 +7,8 @@ public class DogActive : MonoBehaviour
     public GameObject dog;
     public GameObject dogText;
 
+    public GameObject barkingAudio;
+
     private void Start()
     {
         dog.GetComponent<EnemyController>().enabled = false;
@@ -17,6 +19,7 @@ public class DogActive : MonoBehaviour
         {
             dog.GetComponent<EnemyController>().enabled = true;
             dogText.SetActive(true);
+            barkingAudio.SetActive(true);
             Destroy(gameObject);
         }
     }

@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public Transform player;
 
     public Rigidbody rbEnemy;
+    public GameObject endScreenDog;
 
     void Start()
     {
@@ -30,6 +31,16 @@ public class EnemyController : MonoBehaviour
             transform.position += direction.normalized * speed * Time.deltaTime;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.1f);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            endScreenDog.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

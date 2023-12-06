@@ -7,6 +7,7 @@ public class Checkpoint : MonoBehaviour
     public GameObject player;
     public Vector3 vectorPoint;
     public bool hasCheckpoint = false;
+    public GameObject checkpointText;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,7 @@ public class Checkpoint : MonoBehaviour
             vectorPoint = player.transform.position;
             Destroy(other.gameObject);
             hasCheckpoint = true;
+            checkpointText.SetActive(true);
         }
     }
 }

@@ -26,4 +26,14 @@ public class RestartGame : MonoBehaviour
         
     }
 
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
 }

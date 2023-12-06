@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -650,7 +650,7 @@ RectTransform:
   m_GameObject: {fileID: 46820401}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.568521, y: 2.070411, z: 1}
+  m_LocalScale: {x: 1.1655052, y: 2.070411, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1643211202}
@@ -3906,6 +3906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dog: {fileID: 1805952220}
   dogText: {fileID: 1335085185}
+  barkingAudio: {fileID: 0}
 --- !u!1 &333422251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1717049088314332801, guid: de13c850f8a7c456c873573c794b96af, type: 3}
@@ -11619,7 +11620,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1742165134}
         m_TargetAssemblyTypeName: RestartGame, Assembly-CSharp
-        m_MethodName: ResetGame
+        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12712,14 +12713,14 @@ RectTransform:
   m_GameObject: {fileID: 1643211201}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.63754326, y: 0.48299593, z: 1}
+  m_LocalScale: {x: 0.857997, y: 0.4829959, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 46820402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: -0.000022888184}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643211203
@@ -12742,7 +12743,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Restart from beginning
+  m_text: Restart Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acc8cf501c57bf84c8c094be97c31023, type: 2}
   m_sharedMaterial: {fileID: -5367349896635430340, guid: acc8cf501c57bf84c8c094be97c31023, type: 2}
